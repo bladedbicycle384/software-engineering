@@ -32,3 +32,10 @@ class TestC(TestCase):
         mocked_requests.return_value.json = Mock(return_value = data)
         response = ApiProcessor().longest_comment()
         assert response['id'] == 3
+
+    @patch("requests.get")
+    def test_call_api(self, mocked_requests):
+        data = json.load(open('./elsys/posts.json'))
+        mocked_requests.return_value.json = Mock(return_value = data)
+        response = ApiProcessor().longest_comment()
+        assert response['id'] == 3
