@@ -37,5 +37,5 @@ class TestC(TestCase):
     def test_call_api(self, mocked_requests):
         data = json.load(open('./elsys/posts.json'))
         mocked_requests.return_value.json = Mock(return_value = data)
-        response = ApiProcessor().longest_comment()
+        response = ApiProcessor().post_with_longest_title()
         assert response['id'] == 3
